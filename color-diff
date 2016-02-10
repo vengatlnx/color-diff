@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+"""
+Script to highlight `diff` in version control system
+"""
+import sys
+
+colors = {
+    "-" : "31",
+    "+" : "32",
+    "@@" : "35"
+}
+
+def theme(line):
+    """
+    Add color highlight for diff changes
+    """
+    if line.startswith("+++"):
+        return line + "="*67 + "\r\n"
+
+    for color in colors.keys():
+        if line.startswith(color):
+            return " \033["+ colors.get(color) +"m"+ line[1:] + "\033[m"
+    else:
+        return line
+
+def main():
+    """
+    Reads console output and highlight diff changes
+    """
+    for line in sys.stdin:
+        sys.stdout.write(theme(line))
+    sys.stdout.flush()
+
+if __name__ == '__main__':
+    main()
