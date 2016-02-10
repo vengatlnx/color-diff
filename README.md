@@ -17,8 +17,10 @@ Add to your `.bashrc` or `zshrc`:
 ```
 
 ### TODO:
+
     * Need to highlight change in diff
     * Need to add support for `diff` command
 
-### LICENSE:
+### Licence:
+
     [MIT Licence](https://github.com/vengatlnx/color-diff/blob/master/LICENSE)
